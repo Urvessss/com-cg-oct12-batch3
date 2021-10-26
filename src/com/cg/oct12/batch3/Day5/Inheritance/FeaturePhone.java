@@ -9,7 +9,7 @@ public class FeaturePhone extends Phone
 	}
 
 	void music() {
-		System.out.println("Play music");
+		System.out.println("Play music........");
 	}
 
 }
