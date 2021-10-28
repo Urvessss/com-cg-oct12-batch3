@@ -1,28 +1,33 @@
 package com.cg.oct12.batch3.Day9.conc;
 
 //class ClassOne extends Thread
-class ClassOne implements Runnable
-{
-   int m1() {
-	System.out.println("M1");
-	return 10;
-}
-   public void run()
-   {
-	   System.out.println("Run");
-	   this.m1();
-   }
+class ClassOne implements Runnable {
 
-}
-public class App {
-public static void main(String[] args) {
-	System.out.println("Main");
-	//classOne obj=new ClassOne();
-	for(int i=0;i<10;i++)
-	{
-	Thread obj=new Thread(new ClassOne());
-	obj.start();
+	int m1() {
+		System.out.println("m1");
+		return 10;
 	}
-	System.out.println("End");
+
+	void m2() {
+		System.out.println("m2");
+	}
+
+	@Override
+	public void run() {
+		System.out.println("run" + Thread.currentThread().getName());
+		this.m1();
+	}
 }
+
+public class App {
+
+	public static void main(String[] args) {
+		System.out.println("main");
+		for (int i = 0; i < 10; i++) {
+			Thread obj = new Thread(new ClassOne());
+			obj.start(); //
+		}
+		System.out.println("end");
+	}
+
 }
